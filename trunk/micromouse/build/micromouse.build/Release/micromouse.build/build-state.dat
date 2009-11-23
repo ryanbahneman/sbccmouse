@@ -1,0 +1,181 @@
+Tmicromouse
+v7
+r0
+t280712564.127421
+cCheck dependencies
+cCompileC build/micromouse.build/Release/micromouse.build/Objects-normal/x86_64/main.o /Users/kpavery/Desktop/micromouse/main.c normal x86_64 c com.apple.compilers.gcc.4_2
+cLd /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/x86_64/micromouse normal x86_64
+cCompileC build/micromouse.build/Release/micromouse.build/Objects-normal/i386/main.o /Users/kpavery/Desktop/micromouse/main.c normal i386 c com.apple.compilers.gcc.4_2
+cLd /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/i386/micromouse normal i386
+cCompileC build/micromouse.build/Release/micromouse.build/Objects-normal/ppc/main.o /Users/kpavery/Desktop/micromouse/main.c normal ppc c com.apple.compilers.gcc.4_2
+cLd /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/ppc/micromouse normal ppc
+cCreateUniversalBinary /Users/kpavery/Desktop/micromouse/build/Release/micromouse normal "x86_64 i386 ppc"
+cGenerateDSYMFile /Users/kpavery/Desktop/micromouse/build/Release/micromouse.dSYM /Users/kpavery/Desktop/micromouse/build/Release/micromouse
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004ABBF0FD00000000000000EE
+t1253830909
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdio.h
+c000000004A5C14A70000000000004174
+t1247548583
+s16756
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdlib.h
+c000000004A5C14A70000000000002DF5
+t1247548583
+s11765
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/time.h
+c000000004A5C14A7000000000000178E
+t1247548583
+s6030
+
+N/Users/kpavery/Desktop/micromouse/build/Release/micromouse
+t1259019736
+s51000
+
+N/Users/kpavery/Desktop/micromouse/build/Release/micromouse.dSYM
+t1259019736
+s102
+
+N/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/i386/main.o
+t1259019736
+s16468
+
+N/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/i386/micromouse
+t1259019736
+s14388
+
+N/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/i386/micromouse.LinkFileList
+c000000004B063FF1000000000000006D
+t1258700785
+s109
+
+N/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/ppc/main.o
+t1259019736
+s18472
+
+N/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/ppc/micromouse
+t1259019736
+s14136
+
+N/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/ppc/micromouse.LinkFileList
+c000000004B063FF1000000000000006C
+t1258700785
+s108
+
+N/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/x86_64/main.o
+t1259019735
+s22916
+
+N/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/x86_64/micromouse
+t1259019736
+s14752
+
+N/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/x86_64/micromouse.LinkFileList
+c000000004B063FF1000000000000006F
+t1258700785
+s111
+
+N/Users/kpavery/Desktop/micromouse/main.c
+c000000004B0B1DD70000000000005B3C
+t1259019735
+s23356
+i<stdio.h>
+i<stdlib.h>
+i<time.h>
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies280712564#280712564#0(0"0(0#1#0"4300885448#0"0#
+
+CCompileC build/micromouse.build/Release/micromouse.build/Objects-normal/i386/main.o /Users/kpavery/Desktop/micromouse/main.c normal i386 c com.apple.compilers.gcc.4_2
+s280712536.581824
+e280712536.885693
+r1
+xCompileC
+xbuild/micromouse.build/Release/micromouse.build/Objects-normal/i386/main.o
+x/Users/kpavery/Desktop/micromouse/main.c
+xnormal
+xi386
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@48"Compile /Users/kpavery/Desktop/micromouse/main.c280712536#280712536#0(0"0(0#0#40"/Users/kpavery/Desktop/micromouse/main.c4300885448#1299"    cd /Users/kpavery/Desktop/micromouse    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/micromouse-generated-files.hmap -I/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/micromouse-own-target-headers.hmap -I/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/micromouse-all-target-headers.hmap -iquote /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/micromouse-project-headers.hmap -F/Users/kpavery/Desktop/micromouse/build/Release -I/Users/kpavery/Desktop/micromouse/build/Release/include -I/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/DerivedSources/i386 -I/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/DerivedSources -c /Users/kpavery/Desktop/micromouse/main.c -o /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/i386/main.o0#
+
+CCompileC build/micromouse.build/Release/micromouse.build/Objects-normal/ppc/main.o /Users/kpavery/Desktop/micromouse/main.c normal ppc c com.apple.compilers.gcc.4_2
+s280712536.606372
+e280712536.925153
+r1
+xCompileC
+xbuild/micromouse.build/Release/micromouse.build/Objects-normal/ppc/main.o
+x/Users/kpavery/Desktop/micromouse/main.c
+xnormal
+xppc
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@48"Compile /Users/kpavery/Desktop/micromouse/main.c280712536#280712536#0(0"0(0#0#40"/Users/kpavery/Desktop/micromouse/main.c4300885448#1293"    cd /Users/kpavery/Desktop/micromouse    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch ppc -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mtune=G5 -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/micromouse-generated-files.hmap -I/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/micromouse-own-target-headers.hmap -I/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/micromouse-all-target-headers.hmap -iquote /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/micromouse-project-headers.hmap -F/Users/kpavery/Desktop/micromouse/build/Release -I/Users/kpavery/Desktop/micromouse/build/Release/include -I/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/DerivedSources/ppc -I/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/DerivedSources -c /Users/kpavery/Desktop/micromouse/main.c -o /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/ppc/main.o0#
+
+CCompileC build/micromouse.build/Release/micromouse.build/Objects-normal/x86_64/main.o /Users/kpavery/Desktop/micromouse/main.c normal x86_64 c com.apple.compilers.gcc.4_2
+s280712536.580179
+e280712536.581147
+r1
+xCompileC
+xbuild/micromouse.build/Release/micromouse.build/Objects-normal/x86_64/main.o
+x/Users/kpavery/Desktop/micromouse/main.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@48"Compile /Users/kpavery/Desktop/micromouse/main.c280712536#280712536#0(0"0(0#0#40"/Users/kpavery/Desktop/micromouse/main.c4300885448#1305"    cd /Users/kpavery/Desktop/micromouse    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/micromouse-generated-files.hmap -I/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/micromouse-own-target-headers.hmap -I/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/micromouse-all-target-headers.hmap -iquote /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/micromouse-project-headers.hmap -F/Users/kpavery/Desktop/micromouse/build/Release -I/Users/kpavery/Desktop/micromouse/build/Release/include -I/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/DerivedSources/x86_64 -I/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/DerivedSources -c /Users/kpavery/Desktop/micromouse/main.c -o /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/x86_64/main.o0#
+
+CCreateUniversalBinary /Users/kpavery/Desktop/micromouse/build/Release/micromouse normal "x86_64 i386 ppc"
+s280712536.935155
+e280712536.937605
+r1
+xCreateUniversalBinary
+x/Users/kpavery/Desktop/micromouse/build/Release/micromouse
+xnormal
+xx86_64 i386 ppc
+lSLF07#2@71"CreateUniversalBinary build/Release/micromouse normal "x86_64 i386 ppc"280712536#280712536#0(0"0(0#0#49"/Users/kpavery/Desktop/micromouse/x86_64 i386 ppc4300885448#474"    cd /Users/kpavery/Desktop/micromouse    /usr/bin/lipo -create /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/x86_64/micromouse /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/i386/micromouse /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/ppc/micromouse -output /Users/kpavery/Desktop/micromouse/build/Release/micromouse0#
+
+CGenerateDSYMFile /Users/kpavery/Desktop/micromouse/build/Release/micromouse.dSYM /Users/kpavery/Desktop/micromouse/build/Release/micromouse
+s280712536.937656
+e280712536.945377
+r1
+xGenerateDSYMFile
+x/Users/kpavery/Desktop/micromouse/build/Release/micromouse.dSYM
+x/Users/kpavery/Desktop/micromouse/build/Release/micromouse
+lSLF07#2@71"GenerateDSYMFile build/Release/micromouse.dSYM build/Release/micromouse280712536#280712536#0(0"0(0#0#58"/Users/kpavery/Desktop/micromouse/build/Release/micromouse4300885448#199"    cd /Users/kpavery/Desktop/micromouse    /Developer/usr/bin/dsymutil /Users/kpavery/Desktop/micromouse/build/Release/micromouse -o /Users/kpavery/Desktop/micromouse/build/Release/micromouse.dSYM0#
+
+CLd /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/i386/micromouse normal i386
+s280712536.885767
+e280712536.902316
+r1
+xLd
+x/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/i386/micromouse
+xnormal
+xi386
+lSLF07#2@117"Link /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/i386/micromouse280712536#280712536#0(0"0(0#0#0"4300885448#543"    cd /Users/kpavery/Desktop/micromouse    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/kpavery/Desktop/micromouse/build/Release -F/Users/kpavery/Desktop/micromouse/build/Release -filelist /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/i386/micromouse.LinkFileList -mmacosx-version-min=10.6 -o /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/i386/micromouse0#
+
+CLd /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/ppc/micromouse normal ppc
+s280712536.925232
+e280712536.935073
+r1
+xLd
+x/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/ppc/micromouse
+xnormal
+xppc
+lSLF07#2@116"Link /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/ppc/micromouse280712536#280712536#0(0"0(0#0#0"4300885448#540"    cd /Users/kpavery/Desktop/micromouse    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch ppc -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/kpavery/Desktop/micromouse/build/Release -F/Users/kpavery/Desktop/micromouse/build/Release -filelist /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/ppc/micromouse.LinkFileList -mmacosx-version-min=10.6 -o /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/ppc/micromouse0#
+
+CLd /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/x86_64/micromouse normal x86_64
+s280712536.581197
+e280712536.606290
+r1
+xLd
+x/Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/x86_64/micromouse
+xnormal
+xx86_64
+lSLF07#2@119"Link /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/x86_64/micromouse280712536#280712536#0(0"0(0#0#0"4300885448#549"    cd /Users/kpavery/Desktop/micromouse    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/kpavery/Desktop/micromouse/build/Release -F/Users/kpavery/Desktop/micromouse/build/Release -filelist /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/x86_64/micromouse.LinkFileList -mmacosx-version-min=10.6 -o /Users/kpavery/Desktop/micromouse/build/micromouse.build/Release/micromouse.build/Objects-normal/x86_64/micromouse0#
+

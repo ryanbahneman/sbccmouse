@@ -1,0 +1,2 @@
+/Users/kpavery/Desktop/micromouse/main.c:24: error: conflicting type qualifiers for 'ffIterations'
+/Users/kpavery/Desktop/micromouse/main.c:18: error: previous definition of 'ffIterations' was here
