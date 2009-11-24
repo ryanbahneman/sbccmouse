@@ -180,11 +180,11 @@ the maze is jeopardized by continuing operation of the mouse).
 Therefore, changing ROMs or downloading programs is NOT allowed
 once the maze is revealed. However, contestants are allowed to:
 
-a. Change switch settings (e.g. to select algorithms)
-b. Replace batteries between runs
-c. Adjust sensors
-d. Change speed settings
-e. Make repairs
+a. Change switch settings (e.g. to select algorithms)<br>
+b. Replace batteries between runs<br>
+c. Adjust sensors<br>
+d. Change speed settings<br>
+e. Make repairs<br>
 
 11. However, a contestant may not alter a mouse in a manner that alters its
 weight (e.g. removal of a bulky sensor array or switching to lighter
