@@ -1,0 +1,215 @@
+#summary One-sentence summary of this page.
+#labels Phase-Requirements
+
+= Introduction =
+
+IEEE Micromouse Competition Rules
+
+
+= Details =
+
+*A. Objective*
+
+In this contest the contestant or team of contestants design and build an
+autonomous robotic "mouse" that negotiates a maze of standard dimensions
+from a specified corner to its center in the shortest time.
+
+*B. Contest Eligibility*
+
+1. All contestants must be an undergraduate IEEE student member at a
+Region 2 school from within the Area of Region 2 in which contest they
+will compete at the time of entry in the Micromouse contest. Any student
+who graduates anytime during the Fall-Spring academic year in which the
+contest is held is eligible to enter the contest. A student graduating after
+competing in the contest still remains eligible to compete in succeeding
+Area, Region, and higher contests as an undergraduate student. Up to two
+graduate students per team are also allowed as stated in Rule B.5 below,
+providing they meet all other requirements.
+
+2. All contestants must be an IEEE Student Member or must have submitted
+an application for membership (and have it accepted by their Student
+Branch Counselor) prior to entry in the Student Branch and/or Chapter
+Contest.
+
+3. The contestant(s) will make a brief presentation of their mouse design
+prior to the competition (5 minutes max) if time allows.
+
+4. The Micromouse entry may be the effort of an individual or a team. In the
+case of a team it should be possible to demonstrate that each individual
+made a significant contribution and that they are all IEEE members.
+
+5. A team may consist of up to five people. A team of four or five people
+may include no more than two graduate students. A team of two or three
+people may have no more than one graduate student. A team consisting of
+a single graduate student is not allowed.
+
+6. All entrants to the contest must declare their intention to enter the contest
+at least 4 weeks before the date of the regional contest. This notice must
+be submitted to the current Student Activities Coordinator, appropriate
+Area, Region 2, by mail, email, or phone (see the names and addresses at
+the end of this document).
+
+7. If the total number of declared mice, from all schools, is less than the
+number of eligible schools to compete in that Area, all shall be eligible to
+IEEE Region 2 Student Activities Conference 2007 - Micromouse Rules 2
+compete in the area contest. Two or more mice of near identical design
+from the same school are not allowed. If more mice than the number of
+eligible schools to compete are entered in the contest (ie., four mice from
+the same school), a qualifying competition will be held in the morning. A
+qualifying contest might involve, for example, having the mice transverse
+a specific numbers of cells.
+
+*C. Rules for the Micromouse*
+
+1. A Micromouse shall be self-contained (no remote controls). A
+Micromouse shall not use an energy source employing a combustion
+process.
+
+2. A Micromouse shall not leave any part of its body behind while
+negotiating the maze.
+
+3. A Micromouse shall not jump over, fly over, climb, scratch, cut, burn,
+mark, damage, or destroy the walls of the maze.
+
+4. A Micromouse shall not be larger either in length or in width, than 25
+centimeters. The dimensions of a Micromouse that changes its geometry
+during a run shall not be greater than 25 cm x 25 cm. There are no
+restrictions on the height of a Micromouse.
+
+5. Any violation of these rules will constitute immediate disqualification
+from the contest and ineligibility for the associated prizes.
+
+*D. Rules for the Maze*
+
+1. The maze is composed of multiples of an 18 cm x 18 cm unit square. The
+maze comprises 16 x 16 unit squares. The walls of the maze are 5 cm high
+and 1.2 cm thick (assume 5% tolerance for mazes). The outside wall
+encloses the entire maze.
+
+2. The sides of the maze walls are white, the tops of the walls are red, and the
+floor is black. The maze is made of wood, finished with non-gloss paint.
+
+a. WARNING: Do not assume the walls are consistently white, or
+that the tops of the walls are consistently red, or that the floor is
+consistently black. Fading may occur; parts from different mazes
+may be used. Do not assume the floor provides a given amount of
+friction. It is simply painted plywood and may be quite slick. The
+maze floor may be constructed using multiple sheets of plywood.
+Therefore there may be a seam between the two sheets on which
+any low-hanging parts of a mouse may snag.
+
+3. The start of the maze is located at one of the four corners. The start square
+is bounded on three sides by walls. The start line is located between the
+first and second squares. That is, as the mouse exits the corner square, the
+time starts. The destination goal is the four cells at the center of the maze.
+At the center of this zone is a post, 20 cm high and each side 2.5 cm. (This
+IEEE Region 2 Student Activities Conference 2007 - Micromouse Rules 3
+post may be removed if requested.) The destination square has only one
+entrance.
+
+4. Small square zones (posts), each 1.2 cm x 1.2 cm, at the four corners of
+each unit square are called lattice points. The maze is so constituted that
+there is at least one wall at each lattice point.
+
+5. Multiple paths to the destination square are allowed and are to be
+expected. The destination square will be positioned so that a wall-hugging
+mouse will NOT be able to find it.
+
+*E. Rules for the Contest*
+
+1. Each contesting Micromouse is allocated a total of 10 minutes of access to
+the maze from the moment the contest administrator acknowledges the
+contestant(s) and grants access to the maze. Any time used to adjust a
+mouse between runs is included in the 10 minutes. Each run (from the start
+cell to the center zone) in which a mouse successfully reaches the
+destination square is given a run time. The minimum run time shall be the
+mouse’s official time. First prize goes to the mouse with the shortest
+official time. Second prize to the next shortest, and so on. NOTE, again,
+that the 10-minute timer continues even between runs. Mice that do not
+enter the center square will be ranked by the maximum number of cells
+they consecutively transverse without being touched. All mice who enter
+the center square within their 10 minute allotment are ranked higher than
+those who do not enter the center square.
+
+2. Each run shall be made from the starting square. The operator may abort a
+run at any time. If an operator touches the Micromouse during a run, it is
+deemed aborted, and the mouse must be removed from the maze. If a
+mouse has already crossed the finish line, it may be removed at any time
+without affecting the run time of that run. If a mouse is placed back in the
+maze for another run, a one-time penalty of 30 seconds will be added to
+the mouse’s next run time.
+
+3. After the maze is disclosed, the operator shall not feed information on the
+maze into the Micromouse however, switch positions may be changed.
+
+4. The illumination, temperature, and humidity of the room shall be those of
+an ambient environment. (40 to 120 degrees F, 0% to 95% humidity, noncondensing).
+
+a. BEWARE: Do not make any assumptions about the amount of
+sunlight, incandescent light, or fluorescent light that may be
+present at the contest site.
+
+5. The run timer will start when front edge of the mouse crosses the start line
+and stops when the front edge of the mouse crosses the finish line. The
+start line is at the boundary between the starting unit square and the next
+unit square clockwise. The finish line is at the entrance to the destination
+square.
+
+6. Every time the mouse leaves the start square, a new run begins. If the
+mouse has not entered the destination square, the previous run is aborted.
+For example, if a mouse re-enters the start square (before entering the
+destination square) on a run, that run is aborted, and a new run will be
+deemed begun, with a new time that starts when the starting square is
+exited.
+
+7. The mouse may, after reaching the destination square, continue to navigate
+the maze, for as long as their total maze time allows.
+
+8. If a mouse continues to navigate the maze after reaching the destination
+square, the time taken will not count toward any run. Of course, the 10-
+minute timer continues to run. When the mouse next leaves the start
+square, a new run will start. Thus, a mouse may and should make several
+runs without being touched by the operator. It should make its own way
+back to the beginning to do so.
+
+9. The judges reserve the right to ask the operator for an explanation of the
+Micromouse. The judges also reserve the right to stop a run, declare
+disqualification, or give instructions as appropriate (e.g., if the structure of
+the maze is jeopardized by continuing operation of the mouse).
+
+10. A contestant may not feed information on the maze to the Micromouse.
+Therefore, changing ROMs or downloading programs is NOT allowed
+once the maze is revealed. However, contestants are allowed to:
+
+a. Change switch settings (e.g. to select algorithms)
+b. Replace batteries between runs
+c. Adjust sensors
+d. Change speed settings
+e. Make repairs
+
+11. However, a contestant may not alter a mouse in a manner that alters its
+weight (e.g. removal of a bulky sensor array or switching to lighter
+batteries to get better speed after mapping the maze is not allowed). The
+judges shall arbitrate.
+
+12. There is only one official IEEE Micromouse contest each year in each
+Area or Region. All mice, whether or not they have competed in previous
+contests, compete on an equal basis. All mice must be presented to the
+judges by the original design team, which must meet all other
+qualifications. First prize will go to that mouse which travels from the start
+square to the destination square in the least amount of time. Second and
+third prizes will be awarded to the second and third fastest respectively.
+As stated in Rule E.1, mice that do not enter the center square will be
+ranked by the maximum number of cells they consecutively transverse
+without being touched.
+
+13. A rotating trophy is awarded to the first place mouse. Verbal recognition
+and certificates will be given to the top three mice among those who are
+competing for the first time. If you and your mouse are first-time
+contestants, be sure to so stipulate when you register for the contest and
+notify the contest judge at the time of the contest.
+
+14. If requested, a break will be provided for a mouse after any run if another
+mouse is waiting to compete. The 10-minute timer will stop. When the
+mouse is re-entered, the 10-minute timer will continue. The judges shall
+arbitrate on the granting of such breaks.
