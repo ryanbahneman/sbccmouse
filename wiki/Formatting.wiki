@@ -1,0 +1,35 @@
+#A few notes
+
+= Introduction =
+
+I wanted to say a few things about formatting the code so that we are using the same standard. This will help us mesh the code together.
+
+
+= Details =
+
+First off, this isn't set in stone. If you know a better way to do something, please speak up and let me know. I merely wanted to offer suggestions to help the project move smoothly.
+
+
+Since the mouse is eventually going to be programmed in c it makes sense to use c to write the code. more specifically, it uses gcc, but that isn't really as critical, any c format should work.
+   There is code posted in C++ format, sorry about that, It's my fault, I didn't have a c compiler at the time. We should start phasing out that code as soon as soon as we have a working c copy.
+
+It helps to pick a naming convention for variables and functions etc. You may use something different, but the convention i learned at sbcc was:
+
+variables: only capitalise first letter of non leading words. eg: testVariable
+
+constants: completely capitalised. eg: MAX 
+
+functions: Capitalise every word. eg: TestFunction()
+
+
+
+A note on for loops. I don't think that the AVR knows what to do with variables initialised inside the for loop. eg: for(int i = 0; i < 5; i++){}, so when writing your code, please put the initialisation outside of the for loop. eg:
+int i;
+for(i = 0; i < 5; i++){}
+
+and PLEASE comment your code.
+
+that's all for now. have a good thanksgiving break!
+
+
+ 
