@@ -3,7 +3,7 @@
 
 = Introduction =
 
-IEEE Micromouse Competition Rules
+IEEE Micromouse Competition Rules<br>
 http://www.ieee.uc.edu/main/files/sac2007/mm_rules.pdf
 
 
