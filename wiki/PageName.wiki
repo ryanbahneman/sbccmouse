@@ -1,11 +1,9 @@
-#summary One-sentence summary of this page.
+#summary IEEE Micromouse Competition Rules
 #labels Phase-Requirements
 
 = Introduction =
 
-IEEE Micromouse Competition Rules<br>
 http://www.ieee.uc.edu/main/files/sac2007/mm_rules.pdf
-
 
 = Details =
 
@@ -90,14 +88,14 @@ encloses the entire maze.
 2. The sides of the maze walls are white, the tops of the walls are red, and the
 floor is black. The maze is made of wood, finished with non-gloss paint.
 
-a. WARNING: Do not assume the walls are consistently white, or
-that the tops of the walls are consistently red, or that the floor is
-consistently black. Fading may occur; parts from different mazes
-may be used. Do not assume the floor provides a given amount of
-friction. It is simply painted plywood and may be quite slick. The
-maze floor may be constructed using multiple sheets of plywood.
-Therefore there may be a seam between the two sheets on which
-any low-hanging parts of a mouse may snag.
+     a. WARNING: Do not assume the walls are consistently white, or
+        that the tops of the walls are consistently red, or that the floor is
+        consistently black. Fading may occur; parts from different mazes
+        may be used. Do not assume the floor provides a given amount of
+        friction. It is simply painted plywood and may be quite slick. The
+        maze floor may be constructed using multiple sheets of plywood.
+        Therefore there may be a seam between the two sheets on which
+        any low-hanging parts of a mouse may snag.
 
 3. The start of the maze is located at one of the four corners. The start square
 is bounded on three sides by walls. The start line is located between the
@@ -182,11 +180,11 @@ the maze is jeopardized by continuing operation of the mouse).
 Therefore, changing ROMs or downloading programs is NOT allowed
 once the maze is revealed. However, contestants are allowed to:
 
-a. Change switch settings (e.g. to select algorithms)
-b. Replace batteries between runs
-c. Adjust sensors
-d. Change speed settings
-e. Make repairs
+     a. Change switch settings (e.g. to select algorithms)
+     b. Replace batteries between runs
+     c. Adjust sensors
+     d. Change speed settings
+     e. Make repairs
 
 11. However, a contestant may not alter a mouse in a manner that alters its
 weight (e.g. removal of a bulky sensor array or switching to lighter
