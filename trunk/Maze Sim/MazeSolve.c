@@ -17,7 +17,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void floodfill(unsigned int maze[][16], int side, int xGoal, int yGoal);
+#define NORTH 1     //00000001
+#define EAST 2      //00000010
+#define SOUTH 4     //00000100
+#define WEST 8      //00001000
+#define ALLWALLS 15 //00001111
+#define TRAVELED 16 //00010000
+
+
+void FloodFill(unsigned int maze[][16], int side, int xGoal, int yGoal);
 int SolveWithFF0(unsigned int map[][16], unsigned int maze[][16], int side, int xStart, int yStart, int xGoal, int yGoal);
 int SolveWithFF1(unsigned int map[][16], unsigned int maze[][16], int side, int xStart, int yStart, int xGoal, int yGoal);
 int GoFFtoCell(unsigned int map[][16], unsigned int maze[][16], int side, int xStart, int yStart, int xGoal, int yGoal);
@@ -71,7 +79,7 @@ steps1 = SolveWithFF1( map, maze, side, start, start, goal, goal);
 
 	printf("Number of Steps for FF0: %d \n", steps0);
         printf("Number of Steps for FF1: %d \n", steps1);
-        floodfill(maze, side, goal, goal);// to get the shortest possible route to the center
+        FloodFill(maze, side, goal, goal);// to get the shortest possible route to the center
 	printf("Shortest Route: %d \n",((maze[0][0] & 65280) >> 8));
         //((maze[0][0] & 65280) >> 8) = only look that top byte of maze
 
@@ -117,7 +125,7 @@ int SolveWithFF1(unsigned int map[][16], unsigned int maze[][16], int side, int 
 int steps, totalSteps = 0;
 
 
-floodfill(map, side, xGoal, yGoal);
+FloodFill(map, side, xGoal, yGoal);
 
 do{
 //Same as FF0, but tries to find a quicker way back
@@ -128,7 +136,7 @@ totalSteps += steps;
 
 //This extra floodfill is necessary because the maze is currently floodfilled assuming
 //that the starting cell in the goal
-floodfill(map, side, xGoal, yGoal);
+FloodFill(map, side, xGoal, yGoal);
 }while( steps != ((map[yStart][xStart] & 65280) >> 8));
 //checks to see if the path traveled is the same as the value of the start cell.
 //if they match, the shortest route is guarnteed.
@@ -140,115 +148,118 @@ return totalSteps;
 int GoFFtoCell(unsigned int map[][16], unsigned int maze[][16], int side, int xStart, int yStart, int xGoal, int yGoal){
 /*a function that moves the mouse from start to the goal, "reflooding"
  *the maze every time it moves to a new cell, and choosing the lowest value neighbor.
- *
- *POSSIBLE improvement:
- *only call floodfill if wall were updated.
- *walls are only updated if the cell has never been visited before.
- *ANOTER improvement:
- *only update walls if cell has never been visited before.
  */
     int steps = 0, dir;
     unsigned int neighbor[4];
     int yCurrent = yStart, xCurrent = xStart;
+
+     // initially Flood the maze with new distance values
+	FloodFill(map, side, xGoal, yGoal);
     
     do{
 
+        if ((map[yCurrent][xCurrent] & TRAVELED) == 0){
+           
 //(1) Update the wall map
 
 /*This checks for walls and updates map acordingly */
 	if (yCurrent > 0){
-		if ((maze[yCurrent][xCurrent] & (1<<0)) != 0){
-			map[yCurrent][xCurrent] |= (1<<0);
-			map[yCurrent - 1][xCurrent] |= (1<<2);
+		if ((maze[yCurrent][xCurrent] & NORTH) != 0){
+			map[yCurrent][xCurrent] |= NORTH;
+			map[yCurrent - 1][xCurrent] |= SOUTH;
 		}
 	}
 	else
-		map[yCurrent][xCurrent] |= (1<<0);
+		map[yCurrent][xCurrent] |= NORTH;
 
 
 
 	if (xCurrent < (side - 1)){
-		if ((maze[yCurrent][xCurrent] & (1<<1)) != 0){
-			map[yCurrent][xCurrent] |= (1<<1);
-			map[yCurrent][xCurrent + 1] |= (1<<3);
+		if ((maze[yCurrent][xCurrent] & EAST) != 0){
+			map[yCurrent][xCurrent] |= EAST;
+			map[yCurrent][xCurrent + 1] |= WEST;
 		}
 	}
 	else
-		map[yCurrent][xCurrent] |= (1<<1);
+		map[yCurrent][xCurrent] |= EAST;
 
 
 
 	if (yCurrent < (side - 1)){
-		if ((maze[yCurrent][xCurrent] & (1<<2)) != 0){
-			map[yCurrent][xCurrent] |= (1<<2);
-			map[yCurrent + 1][xCurrent] |= (1<<0);
+		if ((maze[yCurrent][xCurrent] & SOUTH) != 0){
+			map[yCurrent][xCurrent] |= SOUTH;
+			map[yCurrent + 1][xCurrent] |= NORTH;
 		}
 	}
 	else
-		map[yCurrent][xCurrent] |= (1<<2);
+		map[yCurrent][xCurrent] |= SOUTH;
 
 
 
 	if (xCurrent > 0){
-		if ((maze[yCurrent][xCurrent] & (1<<3)) != 0){
-			map[yCurrent][xCurrent] |= (1<<3);
-			map[yCurrent][xCurrent - 1] |= (1<<1);
+		if ((maze[yCurrent][xCurrent] & WEST) != 0){
+			map[yCurrent][xCurrent] |= WEST;
+			map[yCurrent][xCurrent - 1] |= EAST;
 		}
 	}
 	else
-		map[yCurrent][xCurrent] |= (1<<3);
+		map[yCurrent][xCurrent] |= WEST;
 
     
 
 //(2) Flood the maze with new distance values
-	floodfill(map, side, xGoal, yGoal);
+	FloodFill(map, side, xGoal, yGoal);
 
+
+
+map[yCurrent][xCurrent] |= TRAVELED;
+        }
 
 //(3) Decide which neighboring cell has the lowest distance value
-int max = 255;
+const int MAX = 255;
 
 	if (yCurrent > 0){
-		if ((map[yCurrent][xCurrent] & (1<<0)) == 0)
+		if ((map[yCurrent][xCurrent] & NORTH) == 0)
 			neighbor[0] = ((map[yCurrent - 1][xCurrent]& 65280) >> 8);
 		else
-			neighbor[0] = max;
+			neighbor[0] = MAX;
 	}
 	else
-			neighbor[0] = max;
+			neighbor[0] = MAX;
 
 	if (xCurrent < (side - 1)){
-		if ((map[yCurrent][xCurrent] & (1<<1)) == 0)
+		if ((map[yCurrent][xCurrent] & EAST) == 0)
 			neighbor[1] = ((map[yCurrent][xCurrent + 1] & 65280) >> 8);
 		else
-			neighbor[1] = max;
+			neighbor[1] = MAX;
 	}
 	else
-			neighbor[1] = max;
+			neighbor[1] = MAX;
 
 	if (yCurrent < (side - 1)){
-		if ((map[yCurrent][xCurrent] & (1<<2)) == 0)
+		if ((map[yCurrent][xCurrent] & SOUTH) == 0)
 			neighbor[2] = ((map[yCurrent + 1][xCurrent] & 65280) >> 8);
 		else
-			neighbor[2] = max;
+			neighbor[2] = MAX;
 	}
 	else
-			neighbor[2] = max;
+			neighbor[2] = MAX;
 
 	if (xCurrent > 0){
-		if ((map[yCurrent][xCurrent] & (1<<3)) == 0)
+		if ((map[yCurrent][xCurrent] & WEST) == 0)
 			neighbor[3] = ((map[yCurrent][xCurrent - 1] & 65280) >> 8);
 		else
-			neighbor[3] = max;
+			neighbor[3] = MAX;
 	}
 	else
-			neighbor[3] = max;
+			neighbor[3] = MAX;
 
 
-int i;
+int i, lowest = MAX;
 	for( i = 0; i < 4; i++){
-		if (neighbor[i] < max){
+		if (neighbor[i] < lowest){
 			dir = i;
-			max = neighbor[i];
+			lowest = neighbor[i];
 		}
 	}
 
@@ -273,7 +284,7 @@ return steps;
 }
 
 
-void floodfill(unsigned int maze[][16], int side, int xGoal, int yGoal){
+void FloodFill(unsigned int maze[][16], int side, int xGoal, int yGoal){
 int i, j;
 	for( i = 0; i < side; i++){
 		for( j = 0; j < side; j++){
