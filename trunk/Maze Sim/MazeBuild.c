@@ -1,58 +1,37 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-
-#define NORTH 1     //00000001
-#define EAST 2      //00000010
-#define SOUTH 4     //00000100
-#define WEST 8      //00001000
-#define ALLWALLS 15 //00001111
-#define TRAVELED 16 //00010000
+#include "MazeBuild.h"
 
 
 
-void drawmaze(int maze[][16], int side);
-void MakeMaze(int maze[][16], int side, int xCurrent, int yCurrent, int xStack[], int yStack[], int stackNum);
-
-
-int main (void) {
-
-srand((unsigned)time(0));
-//int random_integer = rand();
+int MakeMaze(unsigned int maze[][16], int loops){
 
 	// populate the maze using the lowest four bits; bits (high -> low): WSEN
 	//	(1 - wall, 0 - open)
 
-	int maze[16][16];
-
 	int xCurrent = 0, yCurrent = 0;
 	int xStack[256], yStack[256], stackNum = 0;
-	int side = 16;
-
+	
         int i, j;
 
-	for(i = 0; i < side; i++){
-		for(j = 0; j < side; j++){
+	for(i = 0; i < SIDE; i++){
+		for(j = 0; j < SIDE; j++){
 			maze[i][j] = ALLWALLS;
 		}
 	}
 
-MakeMaze(maze, side, xCurrent, yCurrent, xStack, yStack, stackNum);
+BuildMaze(maze, xCurrent, yCurrent, xStack, yStack, stackNum);
 
 //Removes all but the wall information
-for(i = 0; i < side; i++){
-    for(j = 0; j < side; j++){
+for(i = 0; i < SIDE; i++){
+    for(j = 0; j < SIDE; j++){
 			maze[i][j] &= ALLWALLS;
     }
 }
 
 ////////// knock down walls to make loops
-int loopy =15;
-while(loopy > 0){
+while(loops > 0){
 
-int randx = rand()%(side-2) +1;
-int randy = rand()%(side-2) +1;
+int randx = rand()%(SIDE-2) +1;
+int randy = rand()%(SIDE-2) +1;
 int randdir = rand()%4;
 int exit = 0;
 
@@ -85,12 +64,12 @@ do{
 			randdir += 1;
 			else{
 				exit = 1;
-				loopy++;
+				loops++;
 			}
 
 		}
 	}while(exit == 0);
-loopy -= 1;
+loops -= 1;
 }
 
 
@@ -146,36 +125,14 @@ maze[7][7] &= ~WEST;
 maze[7][6] &= ~EAST;
 }
 
-
-
-drawmaze( maze, side);
-
-
-//output the maze
-	printf("{");
-	for(i = 0; i < side; i++){
-		printf("{");
-		for(j = 0; j < side; j++){
-			maze[i][j] &= ALLWALLS;
-			if(j==(side-1))
-				printf("%d", maze[i][j]);
-			else
-				printf("%d, ", maze[i][j]);
-		}
-		if(i==side-1)
-			printf("}}; \n");
-		else
-			printf("}, \n");
-
-	}
-
-        return(0);
-
-
+FloodFill(maze, GOALX, GOALY);
+if((maze[STARTY][STARTX] >> 8) < 255)
+return(EXIT_SUCCESS); //0
+else
+    return(EXIT_FAILURE); //1
 }
 
-
-void MakeMaze(int maze[][16], int side, int xCurrent, int yCurrent, int xStack[], int yStack[], int stackNum){
+void BuildMaze(unsigned int maze[][16], int xCurrent, int yCurrent, int xStack[], int yStack[], int stackNum){
 
 	maze[yCurrent][xCurrent] |= TRAVELED;
 
@@ -187,12 +144,12 @@ void MakeMaze(int maze[][16], int side, int xCurrent, int yCurrent, int xStack[]
 			i+=1;
 		}
 	}
-	if (xCurrent + 1 < side){
+	if (xCurrent + 1 < SIDE){
 		if((maze[yCurrent][xCurrent + 1] & TRAVELED) == 0){
 			dir |= EAST;
 			i+=1;
 		}
-        if (yCurrent + 1 < side){
+        if (yCurrent + 1 < SIDE){
 		if((maze[yCurrent + 1][xCurrent] & TRAVELED) == 0){
 			dir |= SOUTH;
 			i+=1;
@@ -250,7 +207,7 @@ void MakeMaze(int maze[][16], int side, int xCurrent, int yCurrent, int xStack[]
 		}
 
         //Recursively calls itself
-	MakeMaze(maze, side, xCurrent, yCurrent, xStack, yStack, stackNum);
+	BuildMaze(maze, xCurrent, yCurrent, xStack, yStack, stackNum);
 	}
 
 
@@ -260,65 +217,45 @@ void MakeMaze(int maze[][16], int side, int xCurrent, int yCurrent, int xStack[]
 		xCurrent = xStack[stackNum];
 		yCurrent = yStack[stackNum];
 
-		MakeMaze(maze, side, xCurrent, yCurrent, xStack, yStack, stackNum);
+		BuildMaze(maze, xCurrent, yCurrent, xStack, yStack, stackNum);
 		}
 
 	}
 
 }
 
-void drawmaze(int maze[][16], int side){
+void InitializeMap(unsigned int map[][16]){
 
-////////////////output what it should look like////////
+    int i, j;
 
-char wall = 178, floors = ' ';
+    for(i = 0; i < SIDE; i++){
+        for(j = 0; j < SIDE; j++){
 
-int i1, i2, row;
-	for(i1 = 0; i1 < side; i1++){
-	for(row = 0; row < 3; row++){
-	for(i2 = 0; i2 < side; i2++){
-
-        if(row == 0 ){
-
-	  printf("%c", wall);
-
-	  if ((maze[i1][i2] &  NORTH) == NORTH)
-	    printf("%c", wall);
-	  else
-	    printf("%c", floors);
-
-	  printf("%c", wall);
-	    }
-	else if (row == 1){
-
-	  if ((maze[i1][i2] &  WEST) == WEST)
-	    printf("%c", wall);
-	  else
-	    printf("%c", floors);
-
-	  printf("%c", floors);
-
-	  if ((maze[i1][i2] &  EAST) == EAST)
-	    printf("%c", wall);
-	  else
-	    printf("%c", floors);
-	    }
-
-	else{
-
-	  printf("%c", wall);
-
-	  if ((maze[i1][i2] &  SOUTH) == SOUTH)
-	    printf("%c", wall);
-	  else
-	    printf("%c", floors);
-
-	  printf("%c", wall);
-	    }
-
-	}
-        printf("\n");
-}
+            if(i == 0){
+                if (j == 0)
+                    map[i][j] = WEST | NORTH;
+                else if (j == SIDE-1)
+                    map[i][j] = NORTH | EAST;
+                else
+                    map[i][j] = NORTH;
+            }
+            else if(i == SIDE-1){
+                 if (j == 0)
+                    map[i][j] = SOUTH | WEST;
+                else if (j == SIDE-1)
+                    map[i][j] = SOUTH | EAST;
+                else
+                    map[i][j] = SOUTH;
+            }
+            else{
+                if (j == 0)
+                    map[i][j] = WEST;
+                else if (j == SIDE-1)
+                    map[i][j] = EAST;
+                else
+                    map[i][j] = 0;
+            }
+        }
+      }
 }
 
-}
