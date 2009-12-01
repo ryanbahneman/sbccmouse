@@ -1,5 +1,5 @@
+#summary AVR Pin Out Basics
 #labels Phase-Design
-AVR Pin Out Basics 
 
 = Introduction =
 
