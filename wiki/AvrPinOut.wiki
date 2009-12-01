@@ -8,14 +8,14 @@ AVR Pin Out Basics
 = Details =
 
 
--14 left motor
--15 left motor
+-14 left motor<br>
+-15 left motor<br><br>
 
--18 right motor
--19 right motor
+-18 right motor<br>
+-19 right motor<br><br>
 
--35 IR --
--37 IR -- (all need to be moved)
--39 IR --
+-35 IR --<br>
+-37 IR -- (all need to be moved)<br>
+-39 IR --<br><br>
 
 Also, USE TIMERS FOR QUARTER PERIODS! (thanks Dean)
