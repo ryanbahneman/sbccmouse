@@ -1,0 +1,24 @@
+#labels Phase-Design
+AVR Pin Out Basics
+
+= Introduction =
+
+
+
+= Details =
+
+
+-14 left motor
+-15 left motor
+
+-18 right motor
+-19 right motor
+
+-35 IR*
+-37 IR*
+-39 IR*
+
+*need to be moved
+
+
+Also, USE TIMERS FOR QUARTER PERIODS! (thanks Dean)
