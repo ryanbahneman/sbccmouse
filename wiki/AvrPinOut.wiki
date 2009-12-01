@@ -14,11 +14,11 @@ AVR Pin Out Basics
 -18 right motor
 -19 right motor
 
--35 IR*
--37 IR*
--39 IR*
+-35 IR\*
+-37 IR\*
+-39 IR\*
 
-*need to be moved
+\*need to be moved
 
 
 Also, USE TIMERS FOR QUARTER PERIODS! (thanks Dean)
