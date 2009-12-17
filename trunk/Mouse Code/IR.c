@@ -2,6 +2,14 @@
 We need to figure out how the program is going to flow so I 
 can talior these functions to work with the code.*/
 
+
+/*
+WHEN WE RESOLDER THE IR PINS!!!!!!!!!
+SET UP THE CENTER ON ADC0
+LEFT ON ADC1
+AND RIGHT ON ADC2
+*/
+
 #include<avr/io.h>
 #include<avr/interrupts.h>
 
@@ -22,8 +30,7 @@ ADCSRA |= (1 << ADEN); // Enable ADC
 ADCSRA |= (1 << ADSC);//Does a dummy conversion to initialize the adc hardware.
 ADCSRA |=(1<<ADIE); //Enable the ADC complete interrupt
 
-//DIDR0 should be used to reduce power consumption when we know exactly what pins we will be using for the IR
-
+//DIDR0 |= (1<<ADC0D)|(1<<ADC1D)|(1<<ADC2D);//Disables the digital input on these pins, saving power.
 }
 
 
@@ -31,36 +38,29 @@ ADCSRA |=(1<<ADIE); //Enable the ADC complete interrupt
 
 void ReadIR(){
 
+/*The following block of code sets the adc multiplexer 
+to the corresponging input.
+*/
+
 if (passNumber == 0){
 //set ADMUCX to center IR
-} 
+ADMUX &= ~(1<<ADC0) & ~(1<<ADC1) & ~(1<<ADC2);//clears the ADMUX0:2 bits
+}
 else if (passNumber == 1){
 //set ADMUCX to left IR
+ADMUX &= ~(1<<ADC0) & ~(1<<ADC1) & ~(1<<ADC2);//clears the ADMUX0:2 bits
+ADMUX |= (1<<ADC0);
 } 
 else if (passNumber == 2){
 //set ADMUCX to right IR
+ADMUX &= ~(1<<ADC0) & ~(1<<ADC1) & ~(1<<ADC2);//clears the ADMUX0:2 bits
+ADMUX |= (1<<ADC1);
 } 
 
 
 ADCSRA |= (1 << ADSC);//Starts ADC conversion
 
 
-/*
-
-in the ADMUX register:
-MUX 4 - 0
-00000 ADC0
-00001 ADC1
-00010 ADC2
-00011 ADC3
-00100 ADC4
-00101 ADC5
-00110 ADC6
-00111 ADC7
-
-I'm not sure what pins the adc are going to end up on, so I'm leaving this part for now.
-
-*/
 }
 
 
