@@ -114,8 +114,8 @@ a&=b			a and b, stored into a		b0001&=b1101 becomes b0001
 
 DDRD:	in order for ports to work, you need to set them for output.
 
-PORTD:	7	6	5				4		3	2	1				0
-				^right coil 2	^right coil 1	^left coil 2	^left coil 1
+PORTD:	76543210
+		(5)right coil 2, (4)right coil 1, (1)left coil 2, (0)left coil 1
 		ex:  b00100001 means right coil 2 is on and left coil 1 is on
 ///////////////////////////////////////////////////////////////////////// */
 
