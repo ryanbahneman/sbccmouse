@@ -6,7 +6,7 @@
 
 //define cpu clock speed if not defined
 
-#define F_CPU 1000000
+#define F_CPU 8000000
 
 #endif
 
