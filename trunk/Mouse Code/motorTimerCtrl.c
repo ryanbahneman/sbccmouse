@@ -1,0 +1,250 @@
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <util/delay.h>
+
+#ifndef F_CPU
+
+//define cpu clock speed if not defined
+
+#define F_CPU 1000000
+
+#endif
+
+/*
+///////////////Pin Configuration//////////////////////////
+-14 left motor (PD0)
+-15 left motor (PD1)
+
+-18 right motor (PD4)
+-19 right motor (PD5)
+
+-22	LED1 (PC0)
+-23	LED2 (PC1)
+-24	LED3 (PC2)
+//////////////////////////////////////////////////////////
+*/
+
+
+
+/*
+/////////////Timer0 Configuration/////////////////////////
+TCCR0B values for CS00, CS01, CS02 (shown as binary)
+
+000		Clock Stop
+001		Clock frequency
+010		Clock/8 from prescaler
+011		Clock/64 from prescaler
+100		Clock/256 from prescaler
+101		Clock/1024 from prescaler
+//////////////////////////////////////////////////////////
+*/
+
+
+
+/*
+/////////////Timer2 Configuration/////////////////////////
+TCCR2B values for CS20, CS21, CS22 (shown as binary)
+
+000		Clock Stop
+001		Clock frequency
+010		Clock/8 from prescaler
+011		Clock/32 from prescaler
+100		Clock/64 from prescaler
+101		Clock/128 from prescaler
+110		Clock/256 from prescaler
+111		Clock/1024 from prescaler
+//////////////////////////////////////////////////////////
+*/
+
+
+
+
+unsigned int motorR = 0;	//Which cycle the right motor is on, needed by interrupts
+unsigned int motorL = 0;	//Which cycle the left motor is on, needed by interrupts
+
+void startTimerCtrl();	//Gives motor control to the timers
+void haltTimerCtrl();	//Stops motors until startTimerCtrl gives motor control back
+
+void turnCW();	//turns ClockWise 90 degrees
+void turnCCW();	//turns CounterClockWise 90 degrees
+
+
+
+
+int main (void)
+{
+	////////////////////////Init Junk////////////////////////
+	/////////////////////////////////////////////////////////
+	DDRD |= (1<<0)|(1<<1)|(1<<4)|(1<<5);	//Outputs for motors
+	DDRC |= (1<<0)|(1<<1);					//Outputs for LEDs
+
+	TCCR0B |= (1<<WGM02);	//Set Timer0 to CTC mode
+	TCCR2B |= (1<<WGM22);	//Set Timer2 to CTC mode
+
+	TIMSK0 = (1<<OCIE0A);	//Output compare on for Timer0
+	TIMSK2 = (1<<OCIE2A);	//Output compare on for Timer2
+
+	sei();					//Enable Global Interrupts
+
+	OCR0A = 30;	//overflow value for Timer0
+	OCR2A = 30;	//overflow value for Timer2
+	// ~20 is max speed with 256 prescale @ 1MHz core
+
+	startTimerCtrl();
+	/////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////
+
+
+	
+	_delay_ms (2500);
+	turnCW();
+	_delay_ms (2500);
+	turnCCW();
+	while(1)
+	{
+	} 
+	return 0;
+	
+}
+
+
+
+void startTimerCtrl(){
+	TCCR0B |= (1<<CS02);	//Start Timer0 with 256 prescaler
+	TCCR2B |= (1<<CS21)|(1<<CS22);	//Start Timer2 with 256 prescaler
+}
+
+void haltTimerCtrl(){
+	TCCR0B = (1<<WGM02);	//Set Timer0 to stopped CTC mode
+	TCCR2B = (1<<WGM22);	//Set Timer2 to stopped CTC mode	
+}
+
+void turnCW(){
+	unsigned int steps;
+	unsigned int tempTimer0 = TCCR0B;	
+	unsigned int tempTimer2 = TCCR2B;
+	
+	int delay = 20;	//Edit this for speed
+	PORTD = 0; //sets all PortD outputs to 0
+
+	TCCR0B = (1<<WGM02);	//Set Timer0 to stopped CTC mode
+	TCCR2B = (1<<WGM22);	//Set Timer2 to stopped CTC mode
+
+	for(steps = 0; steps < 39; steps++){
+
+			PORTD |= (1<<1);
+			PORTD |= (1<<4);
+			_delay_ms (delay);
+
+			PORTD |= (1<<0);
+			PORTD |= (1<<5);
+			_delay_ms (delay);
+
+			PORTD &= ~(1<<1);
+			PORTD &= ~(1<<4);
+			_delay_ms (delay);
+
+			PORTD &= ~(1<<0);
+			PORTD &= ~(1<<5);
+			_delay_ms (delay);
+		}
+	TCCR0B = tempTimer0;	//Reset Timer0 with previous settings
+	TCCR2B = tempTimer2;	//Reset Timer2 with previous settings
+}
+
+void turnCCW(){
+	unsigned int steps;
+	unsigned int tempTimer0 = TCCR0B;	
+	unsigned int tempTimer2 = TCCR2B;
+
+	int delay = 20;	//Edit this for speed
+	PORTD = 0; //sets all PortD outputs to 0
+
+	TCCR0B = (1<<WGM02);	//Set Timer0 to stopped CTC mode
+	TCCR2B = (1<<WGM22);	//Set Timer2 to stopped CTC mode
+
+	for(steps = 0; steps < 39; steps++){
+
+			PORTD |= (1<<5);
+			PORTD |= (1<<0);
+			_delay_ms (delay);
+
+			PORTD |= (1<<4);
+			PORTD |= (1<<1);
+			_delay_ms (delay);
+
+			PORTD &= ~(1<<5);
+			PORTD &= ~(1<<0);
+			_delay_ms (delay);
+
+			PORTD &= ~(1<<4);
+			PORTD &= ~(1<<1);
+			_delay_ms (delay);
+		}
+	TCCR0B = tempTimer0;	//Reset Timer0 with previous settings
+	TCCR2B = tempTimer2;	//Reset Timer2 with previous settings
+}
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////INTERRUPTS//////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+
+//RELIANT ON GLOBAL
+ISR(TIMER0_COMPA_vect){ //Controls Right Motor
+	switch(motorR){	//switches depending on the phase the motor is in.
+	case 0:
+		PORTD |= (1<<5);
+		motorR++;
+	break;
+
+	case 1:
+		PORTD |= (1<<4);
+		motorR++;
+	break;
+
+	case 2:
+		PORTD &= ~(1<<5);
+		motorR++;
+	break;
+
+	case 3:
+		PORTD &= ~(1<<4);
+		motorR = 0;
+	break;
+	}
+	TCNT0 = 0;	//Sets counter to zero; shouldnt be needed
+}
+
+//RELIANT ON GLOBAL
+ISR(TIMER2_COMPA_vect){	//Controls Left Motor
+	switch(motorL){	//switches depending on the phase the motor is in.
+	case 0:
+		PORTD |= (1<<1);
+		motorL++;
+	break;
+
+	case 1:
+		PORTD |= (1<<0);
+		motorL++;
+	break;
+
+	case 2:
+		PORTD &= ~(1<<1);
+		motorL++;
+	break;
+
+	case 3:
+		PORTD &= ~(1<<0);
+		motorL = 0;
+	break;
+	}
+	TCNT2 = 0;	//Sets counter to zero; shouldnt be needed
+}
